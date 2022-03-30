@@ -52,6 +52,18 @@ class PreviewViewController: NSViewController, QLPreviewingController, NSOutline
         return NSNib.Name("PreviewViewController")
     }
     
+    override func keyDown(with event: NSEvent) {
+        if (event.keyCode == 1){
+             print("down")
+        }
+    }
+
+    override func keyUp(with event: NSEvent) {
+          if (event.keyCode == 1){
+             print("up")
+        }
+    }
+    
     func outlineViewSelectionDidChange(_ notification: Notification) {
         print(#function)
         
@@ -188,6 +200,7 @@ class PreviewViewController: NSViewController, QLPreviewingController, NSOutline
 //        NotificationCenter.default.addObserver(self, selector: #selector(didChangeUserDefaults(notification:)), name: UserDefaults.didChangeNotification, object: nil)
         
         print(archive)
+        
         
         var directoryTable: [String: Node] = [:]
         
